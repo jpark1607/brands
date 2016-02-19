@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>멋사x대학 초안 선정작 페이지</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body style="background-color:#F8F8F8">
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper orange accent-2">
+      <a href="../" class="brand-logo">&nbsp;&nbsp;멋사x대학 초안&nbsp;&nbsp;</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if !current_page?(url_for(:controller => 'home', :action => 'dankook')) %>
+          <li><a href="/home/dankook">&nbsp;&nbsp;단국대&nbsp;&nbsp;</a></li>
+        <% else %>
+          <li class="active"><a>&nbsp;&nbsp;단국대&nbsp;&nbsp;</a></li>
+        <% end %>
+        <% if !current_page?(url_for(:controller => 'home', :action => 'sungshin')) %>
+          <li><a href="/home/sungshin">&nbsp;&nbsp;성신여대&nbsp;&nbsp;</a></li>
+        <% else %>
+          <li class="active"><a>&nbsp;&nbsp;성신여대&nbsp;&nbsp;</a></li>
+        <% end %>
+        <% if !current_page?(url_for(:controller => 'home', :action => 'kookmin')) %>
+          <li><a href="/home/kookmin">&nbsp;&nbsp;국민대&nbsp;&nbsp;</a></li>
+        <% else %>
+          <li class="active"><a>&nbsp;&nbsp;국민대&nbsp;&nbsp;</a></li>
+        <% end %>
+        <% if !current_page?(url_for(:controller => 'home', :action => 'skku')) %>
+          <li><a href="/home/skku">&nbsp;&nbsp;성균관대&nbsp;&nbsp;</a></li>
+        <% else %>
+          <li class="active"><a>&nbsp;&nbsp;성균관대&nbsp;&nbsp;</a></li>
+        <% end %>
+        &nbsp;
+      </ul>
+      <ul class="dropdown-content" id="dropdown1">
+          <li><a href="/home/dankook">단국대</a></li>
+          <li><a href="/home/sungshin">성신여대</a></li>
+          <li><a href="/home/kookmin">국민대</a></li>
+          <li><a href="/home/skku">성균관대</a></li>
+      </ul>
+      <a class="dropdown-button button-collapse" href="#!" data-activates="dropdown1"><i class="material-icons right">menu</i></a>
+    </div>
+  </nav>
+</div>
+<br>
+<%= yield %>
+
+</body>
+</html>
